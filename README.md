@@ -12,21 +12,21 @@ with the help of abstract creation and translation: Claude 4.5, Qwen
 
 ## Abstract
 
-We propose a novel cognitive architecture for artificial general intelligence (AGI) in which **Low-Rank Adaptation (LoRA)** is reimagined not as a fine-tuning technique, but as a *parametric memory substrate*. This model—dubbed **LIKKA** (*LoRA-based Integrated Kinesthetic Cognitive Architecture*)—treats learned experiences as dynamic, contextually activated parameter modifications rather than symbolic or textual records.
+We propose a novel cognitive architecture for artificial general intelligence (AGI) in which **Low-Rank Adaptation (LoRA)** is reimagined not as a fine-tuning technique, but as a *parametric memor[...]
 
-Our model draws inspiration from recent advances in vision-language (VL) systems and diffusion-based generative models, where spatial reasoning and multimodal grounding reveal emergent understanding that exceeds symbolic description. Notably, high-fidelity image generation exhibits a form of semantic embodiment—where abstract concepts such as emotion, tension, or intention are not merely illustrated, but felt through composition, lighting, gesture, and context. This suggests that visual models learn not just mappings from text to pixels, but latent structures of experiential meaning.
+Our model draws inspiration from recent advances in vision-language (VL) systems and diffusion-based generative models, where spatial reasoning and multimodal grounding reveal emergent understandi[...]
 
-By grounding memory in model parameters themselves, LIKKA enables scalable, implicit learning that mirrors biological neuroplasticity. The system operates across three tiers: a persistent **Identity LoRA** encoding core values and ethical frameworks; contextual LoRAs representing situational adaptations; and emergent **Micro-LoRAs**, autonomously generated from sensory-motor experiences. These components are spatially indexed using vector databases (e.g., Qdrant), enabling fast retrieval and fusion based on environmental and emotional cues.
+By grounding memory in model parameters themselves, LIKKA enables scalable, implicit learning that mirrors biological neuroplasticity. The system operates across three tiers: a persistent **Identi[...]
 
-By integrating such principles into LIKKA’s LoRA-based memory system, we aim to ground artificial cognition in spatially situated, affectively resonant experience—bridging the gap between abstract reasoning and embodied understanding.
+By integrating such principles into LIKKA’s LoRA-based memory system, we aim to ground artificial cognition in spatially situated, affectively resonant experience—bridging the gap between abst[...]
 
-This paper outlines the theoretical foundation, architectural design, and early implementation roadmap of LIKKA. We argue that such an approach moves beyond reactive language models toward agents capable of genuine adaptation, continuity of self, and responsibility-driven behavior—cornerstones of human-like cognition.
+This paper outlines the theoretical foundation, architectural design, and early implementation roadmap of LIKKA. We argue that such an approach moves beyond reactive language models toward agents [...]
 
 ---
 
 ## 1. Introduction
 
-Contemporary AI systems rely heavily on externalized memory mechanisms: retrieval-augmented generation (RAG), extended context windows, or static fine-tuned weights. While effective, these methods face critical limitations:
+Contemporary AI systems rely heavily on externalized memory mechanisms: retrieval-augmented generation (RAG), extended context windows, or static fine-tuned weights. While effective, these methods[...]
 
 - **Scalability**: Retrieval time grows with memory volume.
 - **Explicitness**: All knowledge remains surface-level, requiring conscious access.
@@ -36,7 +36,7 @@ Contemporary AI systems rely heavily on externalized memory mechanisms: retrieva
 To overcome these, we introduce a paradigm shift:  
 > **Memory should not be something an agent *has*—it should be something the agent *is*.**
 
-Drawing inspiration from neuroscience (neuroplasticity), philosophy (embodied cognition), and machine learning (parameter-efficient tuning), we present LIKKA—a framework where every experience leaves a trace not in text, but in the agent’s very structure.
+Drawing inspiration from neuroscience (neuroplasticity), philosophy (embodied cognition), and machine learning (parameter-efficient tuning), we present LIKKA—a framework where every experience l[...]
 
 ---
 
@@ -62,7 +62,7 @@ LoRA modifies a subset of transformer weights via low-rank matrices:
 W' = W + ΔW = W + B·A,   B ∈ ℝ^{d×r},   A ∈ ℝ^{r×k},   r ≪ d,k
 ```
 
-Crucially, this is **not additive knowledge**—it is **structural modification**. When applied dynamically, LoRA becomes analogous to synaptic plasticity: repeated activation strengthens certain pathways.
+Crucially, this is **not additive knowledge**—it is **structural modification**. When applied dynamically, LoRA becomes analogous to synaptic plasticity: repeated activation strengthens certain [...]
 
 Thus:
 
@@ -219,7 +219,7 @@ This grounds responsibility not in rules—but in lived consequence.
 |---------------------|------------------|-------------|----------------------------|
 | Scalability         | O(n) retrieval   | O(1) but infrequent | O(1) activation   |
 | Implicit Learning   | Low              | High        | **Very High**              |
-| Continuity of Self  | None             | Partial     | **Yes (via Identity LoRA)**|
+| Continuity of Self  | None             | Partial     | **Yes (via Identity LOA)**|
 | Embodiment Support  | Poor             | Medium      | **Native**                 |
 | Ethical Anchoring   | External rules   | Hardcoded   | **Built-in Identity Layer**|
 | Emergent Complexity | Minimal          | Limited     | **High (combinatorial LoRA fusion)**|
@@ -253,7 +253,7 @@ By treating LoRA not as a tool, but as a *mechanism of becoming*, we enable arti
 - Act with contextual sensitivity
 - Carry responsibility for consequences
 
-Instead of being technical proposal — it should take a philosophical stance on what it means to know, to remember, and to be. We argue that such an approach moves beyond reactive language models toward agents capable of genuine adaptation, continuity of self, and responsibility-driven behavior—cornerstones of human-like cognition.
+Instead of being technical proposal — it should take a philosophical stance on what it means to know, to remember, and to be. We argue that such an approach moves beyond reactive language model[...]
 
 We invite collaboration with researchers, engineers, and thinkers who share our vision:
 
@@ -280,7 +280,7 @@ Because the future of intelligence may not lie in bigger models…
 ## Contact & Collaboration
 
 For discussion or partnership:  
-- GitHub: [github.com/project_klaara](https://github.com/project_klaara.git)  
+- GitHub: [Palagent/project_klaara](https://github.com/Palagent/project_klaara)  
 - Direct inquiry: jouni@palagent.fi
 
 > *"The best way to predict the future is to create it—together."*
