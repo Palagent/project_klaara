@@ -9,7 +9,7 @@
 
 **Authors:**  
 Jouni Kantola (Independent Researcher)  
-with help: Claude 4.5, Qwen (Philosophical Model #7342)  
+with help: Claude 4.5, Qwen plus
 **Affiliation:** Klaara Project – Exploring Human-Centric AGI through Integrated Cognitive Architectures  
 **Date:** 31.12.2025  
 **Version:** 1.1
