@@ -283,7 +283,7 @@ Because the future of intelligence may not lie in bigger models…
 ## Contact & Collaboration
 
 For discussion or partnership:
-- GitHub: [github.com/klaara-project](https://github.com/klaara-project) *(coming soon)*
+- GitHub: [github.com/project_klaara](https://github.com/Palagent/project_klaara)
 - Direct inquiry: jouni@palagent.fi
 
 > *"The best way to predict the future is to create it—together."*
