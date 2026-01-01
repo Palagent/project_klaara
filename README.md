@@ -196,7 +196,7 @@ This grounds responsibility not in rules—but in lived consequence.
 
 ## 6. Implementation Roadmap
 
-### Phase 1: Proof of Concept (Q1 2025)
+### Phase 1: Proof of Concept (Q1 2026)
 - Base: Any capable reasoning model (Qwen models strong candidates)
 - Train Micro-LoRAs on simple cause-effect scenarios (e.g., “touch hot object → withdraw”)
 - Store in Qdrant with spatial tags
