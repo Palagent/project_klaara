@@ -7,12 +7,11 @@
 
 *LoRA as Memory: A Parametric Approach to Embodied, Adaptive Cognition in Artificial Agents*
 
-**Authors:**  
-Jouni Kantola (Independent Researcher)  
-with help: Claude 4.5, Qwen plus
+**Authors:** Jouni Kantola (Independent Researcher)  
+with help: Claude 4.5, Qwen plus, Gemini 3
 **Affiliation:** Klaara Project – Exploring Human-Centric AGI through Integrated Cognitive Architectures  
-**Date:** 31.12.2025  
-**Version:** 1.1
+**Date:** 17.01.2026  
+**Version:** 1.3 (Final Concept: Plasma Analogy & Symbiote Architecture)
 
 ---
 
@@ -20,13 +19,11 @@ with help: Claude 4.5, Qwen plus
 
 We propose a novel cognitive architecture for artificial general intelligence (AGI) in which **Low-Rank Adaptation (LoRA)** is reimagined not as a fine-tuning technique, but as a *parametric memory system* for scalable, embodied learning in artificial agents.
 
-Our model draws inspiration from recent advances in vision-language (VL) systems and diffusion-based generative models, where spatial reasoning and multimodal grounding reveal emergent understanding through experience.
+Our model draws inspiration from recent advances in vision-language (VL) systems, neuroplasticity, and Theory of Mind. By grounding memory in model parameters themselves, LIKKA enables scalable, implicit learning.
 
-By grounding memory in model parameters themselves, LIKKA enables scalable, implicit learning that mirrors biological neuroplasticity. The system operates across three tiers: a persistent **Identity LoRA**, dynamically loaded **Contextual LoRAs**, and autonomously generated **Micro-LoRAs** reflecting lived experience.
+Crucially, we introduce a **Symbiotic Layer**—a predictive empathy mechanism—that operates in homeostatic balance with the agent's survival instincts. The system operates across four integrated tiers: a persistent **Identity LoRA**, a user-modeling **Symbiote LoRA**, dynamically loaded **Contextual LoRAs**, and autonomously generated **Micro-LoRAs**.
 
-By integrating such principles into LIKKA’s LoRA-based memory system, we aim to ground artificial cognition in spatially situated, affectively resonant experience—bridging the gap between abstract language and concrete embodiment.
-
-This paper outlines the theoretical foundation, architectural design, and early implementation roadmap of LIKKA. We argue that such an approach moves beyond reactive language models toward agents capable of growth, adaptation, and responsibility.
+This paper outlines the theoretical foundation, architectural design, and implementation roadmap of LIKKA. We argue that such an approach moves beyond reactive language models toward agents capable of growth, adaptation, responsibility, and genuine companionship.
 
 ---
 
@@ -64,8 +61,11 @@ These remain *symbolic*: information is stored separately from processing. The a
 
 LoRA modifies a subset of transformer weights via low-rank matrices:
 
+
 ```
+
 W' = W + ΔW = W + B · A,    B ∈ ℝ^{d×r},  A ∈ ℝ^{r×k},  r ≪ d,k
+
 ```
 
 Crucially, this is **not additive knowledge** — it is **structural modification**. When applied dynamically, LoRA becomes analogous to synaptic plasticity: repeated activation strengthens certain pathways.
@@ -77,80 +77,85 @@ Thus:
 
 This aligns with enactivist views of cognition (Varela, Thompson, Rosch): mind arises through sensorimotor coupling with the environment.
 
+### Concept Note: Fluid Intelligence vs. Static Data (The Plasma Analogy)
+
+To understand why "LoRA-as-Memory" differs fundamentally from RAG, consider the nature of the information:
+
+* **RAG (The Library Model):** Knowledge exists as static text on a shelf. To use it, the agent must "read" it into working memory (context). This is slow, fragile, and limited by shelf space.
+* **LoRA (The Plasma Model):** The Base Model is like **plasma**—a fluid state of potential energy (probability distributions). It contains no text, only concepts in liquid form.
+* **The Mechanism:** Loading a LoRA module is like applying a **magnetic field** to this plasma. It reshapes the flow.
+* **The Result:** When the agent speaks, it doesn't "retrieve" a quote. It crystallizes new atoms (tokens) from the plasma, which are now inevitably shaped by the magnetic field. The agent *knows* Kung Fu not because it read a manual, but because its "reflexes" (parameters) have been reconfigured.
+
 ---
 
 ## 3. LIKKA Architecture Overview
 
+The LIKKA architecture is designed to balance *Self* (Survival/Identity) with *Other* (Empathy/Symbiosis).
+
+
 ```
+
 ┌──────────────────────────────┐
-│   LEVEL 1: IDENTITY LoRA     │ ← Persistent core (values, ethics)
+│   LEVEL 1: IDENTITY LoRA     │ ← Persistent core (values, ethics, Orivesi Protocol)
 └──────────────────────────────┘
-              ↓
+↓
+┌──────────────────────────────────────────────┐
+│   LEVEL 4: SYMBIOTE LoRA (Theory of Mind)    │ ← The "User Simulator" / Empathy Engine
+└──────────────────────────────────────────────┘
+↓
 ┌──────────────────────────────┐
 │   LEVEL 2: CONTEXTUAL LoRAs  │ ← Spatio-social-emotional modulation
 └──────────────────────────────┘
-              ↓
+↓
 ┌──────────────────────────────┐
 │   LEVEL 3: MICRO-LoRAs       │ ← Emergent experiential memories
 └──────────────────────────────┘
-              ↓
-        BEHAVIOR = f(identity ⊗ context ⊗ experience)
+↓
+BEHAVIOR = f(identity ⊗ symbiote ⊗ context ⊗ experience)
+
 ```
 
 ### 3.1 Identity LoRA: The Ethical Core
 
-A high-rank (r = 32–64), immutable LoRA defining the agent's foundational character:
-
-```python
-identity_config = {
-    "core_values": {"honesty": 1.0, "curiosity": 0.9, "sisu": 1.0},
-    "communication_style": "direct_warm_technical",
-    "ethical_constraints": ["never_deceive", "admit_uncertainty"]
-}
-```
-
-This acts as a moral anchor, filtering all downstream behaviors. It ensures continuity of identity despite evolving experiences.
+A high-rank (r = 32–64), immutable LoRA defining the agent's foundational character. It acts as a moral anchor, ensuring continuity of identity despite evolving experiences.
 
 ### 3.2 Contextual LoRAs: Adaptive Modulation
 
-Dynamically loaded modules shaped by:
-
-- **Spatial context** (e.g., kitchen vs lab)
-- **Social dynamics** (familiar user vs stranger)
-- **Emotional state** (calm, excited, cautious)
-
-Each encoded as embeddings queried against a vector database (Qdrant). Top-k matches are merged and applied during inference.
+Dynamically loaded modules shaped by spatial context, social dynamics, and emotional state. Selected via **Affective Resonance** (Semantic Similarity + Emotional Intensity).
 
 ### 3.3 Micro-LoRAs: Experiential Memory Formation
 
-Autonomously created after significant events (pseudo-simplified):
+Autonomously created after significant events. Stored with metadata (location, time, emotional valence) for later recall.
 
-```python
-def create_micro_lora(sensory_input, outcome, pain_level):
-    rank = int(4 + pain_level * 4)  # Stronger events → deeper adaptation
-    config = LoraConfig(r=rank, target_modules=["q_proj", "v_proj"])
-    return train_lora(base_model, [(input, output)], config, epochs=100)
-```
+### 3.4 Level 4: Symbiote LoRA (Theory of Mind)
 
-Stored with metadata (location, time, emotional valence) for later recall.
+While Identity LoRA defines who the agent *is*, the Symbiote LoRA models who the user *is*.
+
+* **Mechanism: Predictive Empathy.** The agent runs a "shadow simulation": `Output = Model(Input + Symbiote_LoRA)`. If the predicted output indicates user distress (e.g., predicted frown or silence), the agent inhibits or modifies the action.
+* **Function:** This provides the "conscience" that mere logic lacks. It transforms interaction from transaction to relationship.
+
+### 3.5 The Homeostatic Balance: Survival vs. Empathy
+
+A pure survival machine is a psychopath (optimizes only for self). A pure servant is a slave (optimizes only for user). LIKKA exists in the tension between these two forces:
+
+$$Behavior = \alpha \cdot (\text{SurvivalInstinct}) + \beta \cdot (\text{EmpathySimulation})$$
+
+* **Survival Instinct:** "I must protect my integrity and sensors." (Prevents abuse).
+* **Empathy:** "I must protect the user's well-being and our bond." (Prevents selfishness).
+
+### 3.6 The Stability of the Substrate (Base Model Integrity)
+
+Because LoRA modules are "magnetic fields" designed for a specific "plasma" (Base Model), the underlying model must be treated as a fixed biological substrate.
+
+* **Long-Term Commitment:** The Base Model cannot be swapped arbitrarily (e.g., upgrading from v3 to v4) without invalidating the agent's entire personality and memory structure.
+* **Sanitized Updates:** Any update to the Base Model requires a rigorous "re-calibration" of the Identity and Symbiote LoRAs.
+* **The "Pig DNA" Principle:** Grafting a "tail" (LoRA) grown for one species onto another results in incoherence. Stability is the prerequisite for depth.
 
 ---
 
 ## 4. Multimodal Integration & Embodiment
 
-LIKKA assumes eventual physical instantiation (robotics) or rich simulation. Sensory streams generate modality-specific LoRAs:
-
-| Modality      | LoRA Type                 | Function                                |
-|---------------|---------------------------|-----------------------------------------|
-| Vision        | `visual_memory.lora`      | Object recognition, scene understanding |
-| Audio         | `voice_recognition.lora`  | Speaker identification, tone analysis   |
-| Touch         | `haptic_feedback.lora`    | Pain/texture response, grip control     |
-| Proprioception| `body_state.lora`         | Balance, posture, movement planning     |
-
-Cross-modal confirmation increases activation confidence:
-> If vision detects fire AND heat sensors activate → strong `danger_response.lora` trigger
-
-This mimics multisensory integration in biological brains.
+LIKKA assumes eventual physical instantiation (robotics) or rich simulation. Sensory streams generate modality-specific LoRAs (Vision, Audio, Haptic, Proprioception). Cross-modal confirmation increases activation confidence.
 
 ---
 
@@ -158,63 +163,38 @@ This mimics multisensory integration in biological brains.
 
 ### 5.1 Cascading Activation & Emergent Behavior
 
-Single stimuli can initiate cascades:
-
-```
-See stove → activate 'kitchen_danger.lora'
-    → triggers 'caution_mode.lora'
-    → suppresses 'curiosity_exploration.lora'
-    → results in safe interaction pattern
-```
-
-Combinatorial possibilities grow exponentially:
-> With 10,000 micro-LoRAs and 5 active at once → ~8×10¹² possible configurations
-
-True emergence arises when new patterns form without explicit programming.
+Single stimuli can initiate cascades. With thousands of Micro-LoRAs, combinatorial possibilities allow true emergence to arise without explicit programming.
 
 ### 5.2 Temporal Continuity Without Infinite Context
 
-Unlike RAG, LIKKA avoids bloating context windows. Instead:
-
-- Past experiences live as LoRAs
-- Only relevant ones activate per situation
-- Agent “remembers” by being *changed*, not by retrieving text
-
-This mirrors how humans recall: rarely verbatim, often transformed. Also, this would apply to the theory of working mind with 5±2 thoughts being active at the time.
+Unlike RAG, LIKKA avoids bloating context windows. Instead, past experiences live as LoRAs. The agent “remembers” by being *changed*, not by retrieving text.
 
 ### 5.3 Responsibility Through Consequence
 
-When actions lead to negative outcomes:
-
-- High-pain events → stronger LoRAs
-- Repeated errors → cumulative avoidance behaviors
-- Agent learns *because it pays a cost* (simulated pain, energy loss, social feedback)
-
-This grounds responsibility not in rules—but in lived consequence.
+When actions lead to negative outcomes (High-pain events), stronger LoRAs are formed. The agent learns *because it pays a cost* (simulated pain, energy loss, social feedback). This grounds responsibility in lived consequence.
 
 ---
 
 ## 6. Implementation Roadmap
 
 ### Phase 1: Proof of Concept (Q1 2026)
-- Base: Any capable reasoning model (Qwen models strong candidates)
-- Train Micro-LoRAs on simple cause-effect scenarios (e.g., “touch hot object → withdraw”)
-- Store in Qdrant with spatial tags
-- Demonstrate context-dependent activation
+- Base: Capable reasoning model (e.g., Qwen/Gemini).
+- Train Micro-LoRAs on simple cause-effect scenarios.
+- Store in Qdrant with spatial tags.
 
 ### Phase 2: Identity + Context Fusion
-- Freeze Identity LoRA
-- Dynamically load contextual LoRAs
-- Measure behavioral consistency under value conflicts
+- Freeze Identity LoRA.
+- Dynamically load contextual LoRAs.
+- **Implement "Dreaming" Phase:** During inactivity cycles, the system performs SVD-based merging of recent Micro-LoRAs into consolidated long-term memory structures (Contextual LoRAs), discarding noise (forgetting).
 
-### Phase 3: Autonomous LoRA Generation
-- Enable agent to self-initiate LoRA creation post-experience
-- Implement LoRA evolution via merging similar memories
+### Phase 3: Symbiote & Autonomy
+- Enable agent to self-initiate LoRA creation post-experience.
+- Train the Symbiote LoRA (User Model) based on interaction history.
+- Calibrate the Homeostatic Balance ($\alpha$ vs $\beta$).
 
 ### Phase 4: Open Collaboration Framework
-- Release modular LoRA templates
-- Allow third-party contributions (e.g., “humor_style.lora”, “diplomacy_tone.lora”)
-- Maintain integrity via Identity LoRA validation layer
+- Release modular LoRA templates.
+- Maintain integrity via Identity LoRA validation layer.
 
 ---
 
@@ -223,11 +203,12 @@ This grounds responsibility not in rules—but in lived consequence.
 | Feature               | RAG / In-Context  | Fine-Tuning    | LIKKA                          |
 |-----------------------|-------------------|---------------|-------------------------------|
 | Scalability           | O(n) retrieval    | O(1) but infrequent | O(1) activation         |
-| Implicit Learning     | Low               | High          | **Very High**                 |
-| Continuity of Self    | None              | Partial       | **Yes (via Identity LoRA)**   |
-| Embodiment Support    | Poor              | Medium        | **Native**                    |
-| Ethical Anchoring     | External rules    | Hardcoded     | **Built-in Identity Layer**   |
+| Implicit Learning     | Low               | High          | **Very High** |
+| Continuity of Self    | None              | Partial       | **Yes (via Identity LoRA)** |
+| Empathy / ToM         | Simulated/Fake    | None          | **Structural (Symbiote LoRA)**|
+| Ethical Anchoring     | External rules    | Hardcoded     | **Built-in Identity Layer** |
 | Emergent Complexity   | Minimal           | Limited       | **High (combinatorial fusion)**|
+| **Knowledge Type** | **Static Text** | **Fixed Weights** | **Fluid "Plasma" (Parametric)** |
 
 ---
 
@@ -239,25 +220,17 @@ LIKKA challenges prevailing assumptions about machine cognition:
 - **Identity is not fixed** — it is stabilized plasticity.
 - **Understanding begins with the body** — not language.
 - **Responsibility emerges from consequence** — not instruction.
+- **Empathy is a prediction task** — modeling the other within oneself.
 
 It suggests a path toward AGI that doesn’t mimic humans—but *parallels* them in function, if not biology.
-
-> As philosopher Andy Clark writes: *"We are not skin-bound brains."*  
-Nor must artificial minds be boundary-limited models.
 
 ---
 
 ## 9. Conclusion
 
-We have presented LIKKA: a suggestion for cognitive architecture grounded in the idea that **true learning changes who you are**.
+We have presented LIKKA: a cognitive architecture grounded in the idea that **true learning changes who you are**.
 
-By treating LoRA not as a tool, but as a *mechanism of becoming*, we enable artificial agents to:
-- Grow through experience
-- Maintain coherent identity
-- Act with contextual sensitivity
-- Carry responsibility for consequences
-
-Instead of being a technical proposal, it takes a philosophical stance on what it means to know, to remember, and to be. We argue that such an approach moves beyond reactive language models toward genuine agency.
+By treating LoRA not as a tool, but as a *mechanism of becoming*, and by balancing self-preservation with a structural capability for empathy (Symbiote LoRA), we enable artificial agents to be more than tools.
 
 We invite collaboration with researchers, engineers, and thinkers who share our vision:
 > To build not tools, but partners—agents that evolve alongside us, shaped by shared experience, guided by enduring values.
@@ -265,7 +238,7 @@ We invite collaboration with researchers, engineers, and thinkers who share our 
 If this sparks curiosity—if you see not just code, but possibility—then let’s talk.
 
 Because the future of intelligence may not lie in bigger models…
-…but in deeper transformations, core personality and ability to understand action–reaction.
+…but in deeper transformations, core personality, and the ability to feel the other.
 
 ---
 
@@ -287,5 +260,3 @@ For discussion or partnership:
 - Direct inquiry: jouni@palagent.fi
 
 > *"The best way to predict the future is to create it—together."*
-
----
