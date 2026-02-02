@@ -9,8 +9,8 @@
 
 **Authors:** Jouni Kantola (Independent Researcher) with help: Claude 4.5, Qwen plus, Gemini 3, GPT-5.2
 **Affiliation:** Klaara Project – Exploring Human-Centric AGI through Integrated Cognitive Architectures  
-**Date:** 17.01.2026  
-**Version:** 1.3 (Final Concept: Plasma Analogy & Symbiote Architecture)
+**Date:** 02.02.2026  
+**Version:** 1.4
 
 ---
 
