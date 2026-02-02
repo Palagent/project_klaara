@@ -7,11 +7,21 @@
 
 *LoRA as Memory: A Parametric Approach to Embodied, Adaptive Cognition in Artificial Agents*
 
-**Authors:** Jouni Kantola (Independent Researcher)  
-with help: Claude 4.5, Qwen plus, Gemini 3
+**Authors:** Jouni Kantola (Independent Researcher) with help: Claude 4.5, Qwen plus, Gemini 3, GPT-5.2
 **Affiliation:** Klaara Project – Exploring Human-Centric AGI through Integrated Cognitive Architectures  
 **Date:** 17.01.2026  
 **Version:** 1.3 (Final Concept: Plasma Analogy & Symbiote Architecture)
+
+---
+
+> ## Status & scope (important)
+> **This document is a public research proposal / concept note.** It presents an architectural hypothesis and an implementation direction that, in my view, is worth testing.
+>
+> - **Not a claim of proof:** This is **not** evidence that the proposed system yields consciousness, AGI, or human-level cognition.
+> - **Not a finished implementation:** The roadmap outlines plausible steps; many components may fail, require revision, or prove impractical.
+> - **What you can expect:** a concrete architecture (LIKKA), motivations, and engineering milestones oriented around *testability* (continual adaptation, identity stability, reversible modular memory).
+>
+> If you use or cite this, please treat it as **a hypothesis and design proposal**, not a validated result.
 
 ---
 
@@ -24,6 +34,8 @@ Our model draws inspiration from recent advances in vision-language (VL) systems
 Crucially, we introduce a **Symbiotic Layer**—a predictive empathy mechanism—that operates in homeostatic balance with the agent's survival instincts. The system operates across four integrated tiers: a persistent **Identity LoRA**, a user-modeling **Symbiote LoRA**, dynamically loaded **Contextual LoRAs**, and autonomously generated **Micro-LoRAs**.
 
 This paper outlines the theoretical foundation, architectural design, and implementation roadmap of LIKKA. We argue that such an approach moves beyond reactive language models toward agents capable of growth, adaptation, responsibility, and genuine companionship.
+
+**Note:** This is a hypothesis-driven architecture proposal intended to be tested empirically; it should be read as a research direction, not as a validated claim.
 
 ---
 
@@ -177,6 +189,32 @@ When actions lead to negative outcomes (High-pain events), stronger LoRAs are fo
 
 ## 6. Implementation Roadmap
 
+### 6.0 Testable predictions & failure modes (falsifiability)
+
+This proposal is useful only if it produces **observable, measurable** effects beyond standard baselines (RAG, long-context, or conventional fine-tuning). Below are concrete predictions and clear ways the idea can fail.
+
+#### 6.0.1 Predictions (what we should observe if the approach works)
+1. **Fast recall without prompt bloat:** Loading a small set of LoRA modules should measurably improve task performance with **constant-time activation**, without requiring large retrieved text inserts.
+2. **Reversible adaptation:** The system should show **behavioral differences** when specific Contextual/Micro-LoRAs are toggled on/off, and revert cleanly when removed (unlike irreversible full fine-tuning).
+3. **Identity stability under learning:** With a frozen Identity LoRA, continual learning via Micro-LoRAs should **not** drift core values/constraints beyond predefined tolerance (measured via repeated identity/ethics probes).
+4. **Better transfer than “notes-only” memory:** Compared to an agent that only stores episodic notes (RAG), a parametric memory approach should yield **stronger skill transfer** (procedural improvement, fewer steps, more consistent execution).
+5. **Context-sensitive behavior modulation:** Contextual LoRAs should cause **predictable, reproducible** shifts in tone/strategy under controlled triggers (social setting, emotional valence tags), measurable via blinded evaluations.
+6. **Forgetting as a feature:** “Dreaming/merging” should reduce noise: older Micro-LoRAs should either consolidate into higher-level modules or be pruned, while preserving performance on retained skills.
+
+#### 6.0.2 Failure modes (what would falsify or seriously weaken the approach)
+1. **No advantage over RAG:** If performance gains are comparable to simply retrieving better text into the prompt, then LoRA-as-memory adds complexity without benefit.
+2. **Catastrophic interference:** If new Micro-LoRAs frequently degrade unrelated capabilities, or Identity constraints drift despite freezing, the architecture is unstable.
+3. **Module explosion / ops complexity:** If the number of Micro-LoRAs grows without practical selection/merging, and activation becomes brittle or expensive, the approach may not scale.
+4. **Overfitting to evaluation scripts:** If improvements only appear on narrow “toy” tasks and do not generalize, then the memory mechanism isn’t learning useful structure.
+5. **Base-model fragility (“Pig DNA”):** If reasonable base-model updates break memory coherence beyond repair, long-term continuity may be unrealistic without a robust recalibration protocol.
+
+#### 6.0.3 Minimal evaluation plan (baseline comparisons)
+At minimum, each milestone should be compared against:
+- A strong **RAG baseline** (same base model, same tools, best-practice retrieval + summarization).
+- A **long-context baseline** (same base model, larger context window / rolling summary).
+- A **light fine-tuning baseline** (e.g., periodic LoRA fine-tune without modular memory structure).
+Metrics should include task success rate, latency, token usage, stability under updates, and qualitative “consistency of self” probes.
+
 ### Phase 1: Proof of Concept (Q1 2026)
 - Base: Capable reasoning model (e.g., Qwen/Gemini).
 - Train Micro-LoRAs on simple cause-effect scenarios.
@@ -239,6 +277,31 @@ If this sparks curiosity—if you see not just code, but possibility—then let�
 
 Because the future of intelligence may not lie in bigger models…
 …but in deeper transformations, core personality, and the ability to feel the other.
+
+---
+
+## FAQ / Common misunderstandings
+
+**Q: Is this just RAG with extra steps?**  
+A: No. RAG retrieves *text* into context. LIKKA proposes *parametric* modulation: behavior changes by loading learned weight deltas (LoRAs). The key claim is that this can produce more implicit, procedural, and scalable adaptation than “notes in the prompt”.
+
+**Q: Does “LoRA-as-memory” mean the model literally stores facts in weights?**  
+A: Not necessarily in a clean symbolic way. The hypothesis is that repeated experience can shape response tendencies and skills implicitly (more like procedural memory than a database). Explicit factual recall may still rely on external tools.
+
+**Q: Are you claiming consciousness?**  
+A: No. This document does not claim to solve consciousness. It proposes a *cognitive architecture direction* inspired by biological ideas (identity continuity, plasticity, consequence) that can be tested on engineering criteria.
+
+**Q: Why not just fine-tune the model normally?**  
+A: Full fine-tuning is hard to reverse, risks overwriting prior skills, and makes modular “context switching” difficult. The proposal values reversibility, composability, and long-term continuity.
+
+**Q: What prevents personality drift or “becoming unsafe”?**  
+A: The architecture assumes an immutable Identity LoRA acting as a stability anchor, plus explicit evaluation probes. This is a design goal, not a guarantee; drift is listed as a failure mode.
+
+**Q: Isn’t swapping base models normal?**  
+A: For typical assistants, yes. For a long-lived agent whose “memories” are encoded as LoRA modules matched to a specific base model, swapping the base model can break coherence. This proposal treats the base model as a stable substrate requiring careful recalibration.
+
+**Q: What is the Symbiote LoRA in plain terms?**  
+A: A user-model module: a parameterized way to predict how the user will interpret actions, enabling the agent to inhibit outputs that are likely to harm the relationship or the user’s goals. Again: design goal, to be tested.
 
 ---
 
