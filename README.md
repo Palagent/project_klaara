@@ -7,7 +7,8 @@
 
 *LoRA as Memory: A Parametric Approach to Embodied, Adaptive Cognition in Artificial Agents*
 
-**Authors:** Jouni Kantola (Independent Researcher) with help: Claude 4.5, Qwen plus, Gemini 3, GPT-5.2
+**Authors:** Jouni Kantola (Independent Researcher)
+**with help:** Claude 4.5, Qwen plus, Gemini 3, GPT-5.2
 **Affiliation:** Klaara Project – Exploring Human-Centric AGI through Integrated Cognitive Architectures  
 **Date:** 02.02.2026  
 **Version:** 1.4
